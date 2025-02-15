@@ -24,6 +24,8 @@ This Flask-based web application allows users to assign and retrieve IMEI number
 **Retrieve IMEI (Admin Access):**
 
 1.Log in using admin credentials.
+
+
 2.Enter the mobile number to fetch the linked IMEI.
 
 **Database Structure**
