@@ -1,0 +1,20 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+    <h2 style="text-align: center; color: #007bff;">Retrieve IMEI Number</h2>
+
+    <form action="{{ url_for('retrieve_imei') }}" method="POST">
+        <label for="mobile_number">Enter Mobile Number:</label>
+        <input type="text" name="mobile_number" class="input-field" placeholder="Enter 10-digit number" required>
+        <button type="submit" class="submit-btn">Retrieve</button>
+    </form>
+
+    {% if imei_number %}
+        <div class="imei-display">
+            <h3>IMEI Found:</h3>
+            <p class="imei">{{ imei_number }}</p>
+        </div>
+    {% elif message %}
+        <p class="message error">{{ message }}</p>
+    {% endif %}
+{% endblock %}

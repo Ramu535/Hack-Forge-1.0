@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="assign-container">
+        <h2>Assign IMEI Number</h2>
+        <form action="{{ url_for('assign_imei') }}" method="POST">
+            <label for="mobile_number">Enter Mobile Number:</label>
+            <input type="text" name="mobile_number" class="input-field" placeholder="Enter 10-digit number" required>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        {% if message %}
+            <p class="message {% if 'Assigned IMEI' in message %}success{% else %}error{% endif %}">
+                {{ message }}
+            </p>
+        {% endif %}
+
+        {% if imei %}
+            <div class="imei-display">
+                <h3>Generated IMEI:</h3>
+                <p class="imei">{{ imei }}</p>
+            </div>
+        {% endif %}
+
+        <div class="retrieve-link">
+            <p>Adminstrator Login</p>
+            <a href="{{ url_for('retrieve_imei') }}" class="retrieve-btn">Retrieve IMEI</a>
+        </div>
+    </div>
+{% endblock %}
